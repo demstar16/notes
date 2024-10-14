@@ -1,24 +1,5 @@
 # Part II: Programming Paradigms
 
-- [Part II: Programming Paradigms](#part-ii-programming-paradigms)
-  - [Paradigm Overview](#paradigm-overview)
-  - [Structured Programming](#structured-programming)
-    - [Dijkstra's Problem](#dijkstras-problem)
-    - [Functional Decomposition](#functional-decomposition)
-    - [Science??](#science)
-    - [Tests](#tests)
-    - [Conclusion](#conclusion)
-  - [Object Orientated Programming](#object-orientated-programming)
-    - [Encapsulation](#encapsulation)
-    - [Inheritance](#inheritance)
-    - [Polymorphism](#polymorphism)
-  - [Functional Programming](#functional-programming)
-    - [Example](#example)
-    - [Immutability and Architecture](#immutability-and-architecture)
-      - [Segregation of Mutability](#segregation-of-mutability)
-      - [Event Sourcing](#event-sourcing)
-  - [Final Conclusion](#final-conclusion)
-
 ## Paradigm Overview
 
 - **Structured Programming**: Replaced `goto` statements with `if/then/else` and `do/while/until` constructs as unrestrained jumps was deemed harmful to program structure.

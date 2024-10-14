@@ -1,25 +1,5 @@
 # Part III: Design Principles
 
-- [Part III: Design Principles](#part-iii-design-principles)
-  - [Introduction](#introduction)
-  - [The Single Responsibility Principle](#the-single-responsibility-principle)
-    - [Symptoms that Violate the SRP](#symptoms-that-violate-the-srp)
-      - [Accidental Deletion](#accidental-deletion)
-      - [Merges](#merges)
-    - [Solutions](#solutions)
-  - [The Open-Closed Principle](#the-open-closed-principle)
-    - [Example](#example)
-    - [Conclusion](#conclusion)
-  - [The Liskov Substitution Principle](#the-liskov-substitution-principle)
-  - [The Interface Segregation Principle](#the-interface-segregation-principle)
-    - [ISP and Architecture](#isp-and-architecture)
-    - [Conclusion](#conclusion-1)
-  - [The Dependency Inversion Principle](#the-dependency-inversion-principle)
-    - [Stable Abstractions](#stable-abstractions)
-    - [Factories](#factories)
-    - [Concrete Components](#concrete-components)
-    - [Conclusion](#conclusion-2)
-
 ## Introduction
 
 - The SOLID Design Principles: SRP, OCP, LSP, ISP, DIP

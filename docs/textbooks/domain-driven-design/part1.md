@@ -1,11 +1,5 @@
 # Part I: Putting the Domain Model to Work
 
-- [Part I: Putting the Domain Model to Work](#part-i-putting-the-domain-model-to-work)
-  - [Introduction](#introduction)
-  - [Crunching Knowledge](#crunching-knowledge)
-  - [Communication and the Use of Language](#communication-and-the-use-of-language)
-  - [Binding Model and Implementation](#binding-model-and-implementation)
-
 ## Introduction
 
 - Every software program relates to some activity or interest, the subject area to which a user applies the program is the **domain**.

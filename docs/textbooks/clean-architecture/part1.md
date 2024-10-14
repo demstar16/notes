@@ -1,12 +1,6 @@
 # Part I: Introduction
 
-<!-- TODO: Fix anchors, the build will tell you which ones -->
-
-- [Part I: Introduction](#part-i-introduction)
-- [What is Design and Architecture?](#what-is-design-and-architecture)
-- [A Tale of Two Values](#a-tale-of-two-values)
-
-# What is Design and Architecture?
+## What is Design and Architecture?
 
 - When software is done right, you save time and resources, increase maintainability and scalability, and it makes fixing issues much easier.
 - Design and Architecture and interchangeable, there is no difference between the 2.
@@ -30,7 +24,7 @@ Solutions:
 - Take your time when making coding decisions.
 - Write clean code as you're working, don't rely on "cleaning it up later".
 
-# A Tale of Two Values
+## A Tale of Two Values
 
 - The 2 things software developers must maintain are **Behaviour** & **Structure**.
 - Behaviour requires a programmer to write code that meets a spec and either makes or saves money for the stakeholders.

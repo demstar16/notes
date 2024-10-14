@@ -1,17 +1,5 @@
 # Part II: The Building Blocks of Model-Driven Design
 
-- [Part II: The Building Blocks of Model-Driven Design](#part-ii-the-building-blocks-of-model-driven-design)
-  - [Isolating the Domain](#isolating-the-domain)
-    - [Layered Architecture](#layered-architecture)
-      - [Relating the Layers](#relating-the-layers)
-      - [Architectural Frameworks](#architectural-frameworks)
-      - [Domain Layer is where the Model lives](#domain-layer-is-where-the-model-lives)
-    - [The Smart UI Anti-Pattern](#the-smart-ui-anti-pattern)
-  - [A Model Expressed in Software](#a-model-expressed-in-software)
-    - [Associations](#associations)
-    - [Entities](#entities)
-    - [Value Objects](#value-objects)
-
 ## Isolating the Domain
 
 ### Layered Architecture

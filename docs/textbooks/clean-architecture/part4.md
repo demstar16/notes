@@ -1,19 +1,5 @@
 # Part IV: Component Principles
 
-- [Part IV: Component Principles](#part-iv-component-principles)
-  - [Components](#components)
-    - [History of Components](#history-of-components)
-      - [Relocatability](#relocatability)
-      - [Linkers](#linkers)
-    - [Conclusion](#conclusion)
-  - [Component Cohesion](#component-cohesion)
-    - [The Reuse/Release Equivalence Principle](#the-reuserelease-equivalence-principle)
-    - [The Common Closure Principle](#the-common-closure-principle)
-    - [The Common Reuse Principle](#the-common-reuse-principle)
-    - [Tension Diagram for Component Cohesion](#tension-diagram-for-component-cohesion)
-    - [Conclusion](#conclusion-1)
-  - [Component Coupling](#component-coupling)
-
 ## Components
 
 - The SOLID principles tell us how to arrange the bricks into walls and rooms, then the component principles tell us how to arrange rooms into buildings.
