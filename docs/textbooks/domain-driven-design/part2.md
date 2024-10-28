@@ -186,8 +186,8 @@
 
 - A domain model doesn't have to be an object model (although its the most popular and "safest").
 - Model paradigms have been conceived to address certain ways people like to think about domains.
-- Then the models for those domains are shaped by the paradigm.
-- The result is a model that conforms to the paradigm so that it can be effectively implemented in the tools that support that modelling style.
+  - Then the models for those domains are shaped by the paradigm.
+  - The result is a model that conforms to the paradigm so that it can be effectively implemented in the tools that support that modelling style.
 - It is okay to have an ugly object if there is only a small case where one thing would suit a different paradigm.
 - Alternatively if there are lots of things that suit another paradigm, it may be worth swapping.
 - If there are major parts of the system both being better off with different paradigms then it's best to design them both in their own paradigms.
@@ -214,3 +214,16 @@
      - Question these things.
      - Mixing paradigms is complicated, and if its not necessary don't do it.
 - Before mixing paradigms the options within the dominant paradigm should be exhausted.
+
+## The Life Cycle of a Domain Object
+
+- Objects have life cycles!
+  - Simple objects are simply called or used and then removed.
+  - Complex objects have longer lives and go through changes of state.
+- The challenges fall into 2 categories:
+  - Maintaining integrity throughout the lifecycle.
+  - Preventing the model from getting swamped by the complexity of managing the life cycle.
+
+### Aggregates
+
+### Factories
