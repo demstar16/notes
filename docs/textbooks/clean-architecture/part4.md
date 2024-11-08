@@ -66,14 +66,14 @@
 - This is essentially the Single Responsibility principle restated for components... a component should not have multiple reasons to change.
 - If 2 components are so tightly bound (either physically or conceptually) that they always change together, then they belong in the same component.
 - This minimizes the workload related to releasing, revalidating, and redeploying the software.
-
 - This principle is tightly associated with the Open-Closed Principle in regards to closure.
 - The OCP states that classes should be closed for modification but open for extension because 100% closure is not attainable, closure is strategic.
 - The CCP amplifies this lesson by gathering together into the same component those classes that are closed to the same types of changes.
 
-  - This means that when a change come along, there's a good change of it being restricted to a minimal number of components.
+  - This means that when a change come along, there's a good chance of it being restricted to a minimal number of components.
 
 - SRP and CCP can be summarised with the following: _Gather together those things that change at the same times and for the same reasons. Separate those things that change at different times or for different reasons._
+- [A good example](https://blog.devgenius.io/common-closure-principle-the-story-of-an-evolving-architecture-6919b452c8db)
 
 ### The Common Reuse Principle
 
@@ -84,12 +84,14 @@
 - We want to make sure that the classes that we put into a component are inseparable, it is impossible to depend on some and not the others.
   - This is because we will be redeploying more components than is necessary, and wasting significant energy.
 - In essence the CRP says that classes that are not tightly coupled should not be in the same component.
-- The CRP is the generic version of the ISP, the ISP advises us not to depend on classes that have methods we don't use, whereas the CRP advises us not to depend on components that have classes we don't use.
+- The CRP is the generic version of the Interface Segregation Principle (ISP), the ISP advises us not to depend on classes that have methods we don't use, whereas the CRP advises us not to depend on components that have classes we don't use.
 - _Don't depend on things you don't need._
 
 ### Tension Diagram for Component Cohesion
 
 The 3 cohesive principles fight each other. The REP and CCP are inclusive, making components larger. Whereas CRP is exclusive, making components smaller. Grouping components together can cause too many unneeded releases or too many components changing and splitting components to avoid unneeded releases can make components harder to reuse. An architect who just focuses on REP and CRP will find that too many components are impacted when simple changes are made. In contrast, those who focus too much CCP and REP will cause too many unneeded releases to be generated.
+
+![width:400](./images/component-cohesion.png)
 
 A good architect will strike a balance that best suits the current needs of the development team and is aware that this can change over time. Projects generally start out towards the right hand side of the triangle, where reuse is the only sacrifice aa the teams focus is developing. As the project matures and other projects begin to draw from it, we start to drift over to the left.]
 
@@ -199,3 +201,7 @@ A good architect will strike a balance that best suits the current needs of the 
 - The dependency management metrics described measure the conformance of a design to a pattern of dependency and abstraction.
 - Keep in mind that a metric is not a god; it is just a measurement against an arbitrary standard.
 - The metrics are imperfect can be found to be useful.
+
+---
+
+[Return](../)
