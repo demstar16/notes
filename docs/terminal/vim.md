@@ -89,3 +89,22 @@
 
 - Run `set -o vi`.
 - You can put your command line into vim mode by hitting `ESC`.
+
+## Recording
+
+- `q` + `THE KEY YOU WANT TO MAP TO`, then type your stuff in, when done hit `q` to stop recording.
+- Press `@` + `THE KEY YOU MAPPED TO`, to use the recording.
+- Eg. Converting string to template string:
+
+```JavaScript
+const = 'text'
+
+// press q + t (for example)
+// recording has started
+
+const = `text` // manually change it now using f in vim
+
+// press q to stop recording
+// now you can use @ + t to redo this wherever else you want.
+
+```

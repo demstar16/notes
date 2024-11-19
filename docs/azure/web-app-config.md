@@ -1,12 +1,5 @@
 # Configuring Web App Settings
 
-## Objectives
-
-- [ ] Create application settings that are bound to deployment slots.
-- [ ] Explain the options for installing SSL/TLS certificates for your app.
-- [ ] Enable diagnostic logging for your app to aid in monitoring and debugging.
-- [ ] Create virtual app to directory mappings
-
 ## Configure Application Settings
 
 - App settings are variables passed as environment variables to the application code.

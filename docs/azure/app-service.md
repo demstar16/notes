@@ -1,12 +1,5 @@
 # App Service
 
-## Objectives
-
-- [ ] Describe Azure App Service key components and value.
-- [ ] Explain how Azure App Service manages authentication and authorization.
-- [ ] Identify methods to control inbound and outbound traffic to your web app,
-- [ ] Deploy an app to App Service using Azure CLI commands.
-
 ## What Is It
 
 - A HTTP-based service for hosting web applications, REST APIs and mobile back ends.
@@ -33,9 +26,61 @@
 
 ## Deployment Slots
 
-- A deployment slot is a live app with its own host name.
+- Is a powerful tool that enables you to preview, manage, test, and deploy your different development environments.
+- It is also a live app with its own host name.
 - App content and configuration elements can be swapped between two deployment slots, including the production slot.
 - You can use a separate deployment slot instead of the default production slot when running in the Standard App Service Plan tier or better.
+- **Standard, Premium, and Isolated** plan tiers support deployment to a specified deployment slot instead of the default production slot.
+- Each app service plan supports a different number of deployment slots, see [here](https://learn.microsoft.com/en-us/azure/azure-resource-manager/management/azure-subscription-service-limits#app-service-limits)
+- **NOTE:** when scaling out ensure that the target tier supports the number of slots your app already uses.
+- When you create a new deployment slot, the new slot has no content, even if you clone the settings from a different slot.
+- You can deploy to the slot from a different repo branch or a different repo.
+
+### Benefits
+
+- You can validate app changes in a staging deployment slot before swapping it with the production slot.
+- Deploying an app to a slot first and swapping it into production makes sure that all instances of the slot are warmed up before being swapped into prod, eliminating downtime on deployment.
+  - The traffic redirection is seamless, and no requests are dropped because of swap operations.
+  - This whole workflow can be automated by configuring auto swap to pre-swap when validation isn't needed.
+- After a swap, the previous production app is located in the staging slot.
+  - If the changes swapped into production slot aren't as you expect, you can perform the same swap immediately to get your "last known good site" back.
+
+### Slot Swapping
+
+- App Service does the following to ensure the target slot doesn't experience downtime:
+  - Apply the following settings from target slot to all instances of the source slot:
+    - Slot-specific app settings and connection strings, if applicable.
+    - Continuous deployment settings, if enabled.
+    - App Service authentication settings, if enabled.
+  - Wait for every instance in the source slot to complete its restart. If any instance fails to restart, the swap operation reverts all changes to the source slot and stops the operation.
+  - If local cache is enabled, trigger local cache initialization by making a HTTP request to the application root ("/") on each instance of the source slot. Wait until each instance returns any HTTP response. Locale cache initialization causes another restart on each instance.
+  - If auto swap is enabled with custom warm-up, trigger Application Initiation by making a HTTP request to the application root on each instance of the source slot.
+    - If `applicationInitialization` isn't specified, trigger a HTTP request to the application root of the source slot on each instance.
+    - If an instance returns any HTTP response, it's considered to be warmed up.
+  - If all instances on the source slot are successfully warmed up, swap the 2 slots by switching the routing rules for the 2 slots. After this step, the target slot has the app that's previously warmed up in the source slot.
+  - Now that the source slot has the pre-swap app previously in the target slot, perform the same operation by applying all setting and restarting the instances.
+- To swap a staging slot with the production slot, make sure that the production slot is the target slot. This way, the swap operation doesn't affect your production app.
+- Settings that change when a slot is swapped.
+
+| Settings that are swapped                                                 | Settings that aren't swapped                           |
+| :------------------------------------------------------------------------ | :----------------------------------------------------- |
+| General settings, such as framework version, 32/64-bit, web sockets, etc. | Publishing endpoints                                   |
+| App settings (can be configured to stick to a slot)                       | Custom domain names                                    |
+| Connection strings (can be configured to stick to a slot)                 | Non-public certificates and TLS/SSL settings           |
+| Handler mappings                                                          | Scale settings                                         |
+| Public certificates                                                       | WebJobs schedulers                                     |
+| Hybrid connections\*                                                      | Always On                                              |
+| Azure Content Delivery Network\*                                          | Diagnostic log settings                                |
+| Service endpoints\*                                                       | Cross-origin resource sharing (CORS)                   |
+| Path mappings                                                             | Virtual network integration                            |
+|                                                                           | Managed identities                                     |
+|                                                                           | Settings that end with the suffix `_EXTENSION_VERSION` |
+
+- Features marked with `*` are planned to be unswapped.
+- To make a setting swappable add `WEBSITE_OVERRIDE_PRESERVE_DEFAULT_STICKY_SLOT_SETTINGS` in every slot of the app and set its value to 0 or false.
+  - You can't make some settings swappable and others not, its all or none.
+  - Managed identities are never swapped and are not affected by this override app settings.
+-
 
 ## Service Plans
 
@@ -308,3 +353,74 @@ To update the site, simply edit the files and then run the same command as above
 - It's a multi-step process:
   1. Rule aggregates values retrieved for a metric for all instances across a period of time (**time grain**). Each metric has its own intrinsic time grain (generally 1 min). The aggregated value is known as the **time aggregation**.
   2. Perform a further aggregation of the value calculated by the time aggregation over a longer, user-specified period, known as the **Duration**.
+
+### Enabling Autoscale
+
+- Not all pricing tiers support autoscaling:
+  - Development pricing tiers are either limited to a single instance, **F1** and **D1** tiers, or they only provide manual scaling, **B1** tier.
+  - You need to scale up to **S1** or any of the **P** tiers for full autoscaling.
+- Default behaviour is Manual Scaling.
+- You can change this to "Custom autoscale" which lets you create conditions based on metrics to determine when to scale.
+- The default scale condition is executed when none of the other scale conditions are active.
+- A metric based scale condition contains one or more scale rules, these rules define the criteria that indicate when a rule should trigger an autoscale action, and the autoscale action to be performed.
+
+#### Monitoring
+
+- You can monitor when autoscaling has occurred through the `Run history` chart, showing how the number of instances vary over time, along with which autoscale conditions caused each change.
+
+### Autoscale Best Practices
+
+#### Concepts
+
+- An autoscale setting scales instances horizontally, which is _out_ by increasing the instances and _in_ by decreasing the instances. There is a max, min, and default value of instances.
+- An autoscale job always reads the associated metric ot scale by, checking if it has crossed the configured threshold for scale-out or scale-in.
+- All thresholds are calculated at an instance level (eg. scale out by one instance when average CPU > 80% when instance count is 2).
+- All autoscale successes and failures are logged to the Activity Log, the activity log alert can be configured to send notifications via email, SMS, or webhooks.
+
+#### Best Practices
+
+- **Ensure the max and min values are different and have an adequate margin between them**
+- **Choose the appropriate statistic for your diagnostics metric** (most common being `Average`)
+- **Choose the thresholds carefully for all metric types**
+  - A confusing example is when **flapping** occurs.
+    - Increase instances by one count when `Thread Count >= 600`
+    - Decrease instances by one count when `Thread Count <= 600`
+    - Assume there are two instances to begin with and then the average number of threads per instance grows to 625.
+    - Autoscale scales out adding a third instance.
+    - Next, assume that the average thread count across instance falls to 575.
+    - Before scaling in, autoscale tries to estimate what the final state will be if it scaled in. For example, 575 x 3 (current instance count) = 1,725 / 2 (final number of instances when scaled in) = 862.5 threads. This means autoscale would have to immediately scale out again even after it scaled in, if the average thread count remains the same or even falls only a small amount. However, if it scaled out again, the whole process would repeat, leading to an infinite loop.
+    - To avoid this situation (termed "flapping"), autoscale doesn't scale in at all. Instead, it skips and reevaluates the condition again the next time the service's job executes. This can confuse many people because autoscale wouldn't appear to work when the average thread count was 575.
+  - Below is a reasonable example:
+    - Increase instances by 1 count when `CPU% >= 80`
+    - Decrease instances by 1 count when `CPU% <= 60`
+    - Assume there are 2 instances to start with.
+    - If the average CPU% across instances goes to 80, autoscale scales out adding a third instance.
+    - Now assume that over time the CPU% falls to 60.
+    - Autoscale's scale-in rule estimates the final state if it were to scale-in. For example, 60 x 3 (current instance count) = 180 / 2 (final number of instances when scaled in) = 90. So autoscale doesn't scale-in because it would have to scale out again immediately. Instead, it skips scaling in.
+    - The next time autoscale checks, the CPU continues to fall to 50. It estimates again - 50 x 3 instance = 150 / 2 instances = 75, which is below the scale-out threshold of 80, so it scales in successfully to 2 instances.
+- **Considerations for scaling when multiple rules are configured in a profile**
+
+  - Eg. On scale-out, autoscale runs if any rule is met. On scale-in, autoscale require all rules to be met.
+
+- **Always select a safe default instance count**
+- **Configure autoscale notifications**
+  - Autoscale posts to the Activity Log if any of the following conditions occur:
+    - Autoscale issues a scale operations.
+    - Autoscale service successfully completes a scale action.
+    - Autoscale service fails to take a scale action.
+    - Metrics aren't available for autoscale service to make a scale decision.
+    - Metrics are available (recovery) again to make a scale decision.
+  - You can also monitor the health of the autoscale engine.
+
+## Routing Traffic
+
+- By default all client requests to the app's prod URL are routed to the production slot.
+- You can route a portion of the traffic to another slot, which can be useful if you need user feedback for a new update but don't want it in production yet.
+- To route production traffic you can navigate to the app's resource page and select `Deployment slots`, then adjust the percentages as you want.
+- As a client, you can see what slot your session is pinned to be checking the `x-ms-routing name` cookie in your HTTP headers.
+- **Routing to specific slots**: useful for when you want users to be able to opt in or out of your beta app.
+- To route traffic manually you use the `x-ms-routing-name` query parameter.
+
+---
+
+[Return](../)
