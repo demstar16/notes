@@ -163,3 +163,32 @@ Azure App Service infrastructure facilitates Azure Functions hosting on Linux an
 
 - Local settings required by your app must also be present in the app settings of the deployed function app.
 - You can download current settings from the function app to your local project.
+
+## Connecting Functions to Azure services
+
+- Azure functions take advantage of the application settings functionality of Azure App Service to help you more securely store strings, keys, and other tokens required to connect to other services.
+- Application settings in Azure are stored encrypted and can be accessed at runtime bu your app as environment variable pairs.
+- For Triggers and Bindings that require a connection property , you set the application setting name instead of the actual connection string.
+  - Not possible to to configure a binding directly with a connection string or key.
+- Default config provider uses ENV variables.
+
+### Configure an identity-based connection
+
+- When running in a Consumption or Elastic Premium plan, your app uses the `WEBSITE_AZUREFILESCONNECTIONSTRING` and `WEBSITE_CONTENTSHARE` settings when connecting to Azure Files on the storage account used by your function app.
+- Azure Files doesn't support using managed identity when accessing the file share.
+- When hosted in the Azure Function service:
+  - identity-managed connections use a managed identity.
+  - System-assigned identity is the default.
+  - You can specify a user-assigned identity with `credential` and `clientID` properties.
+  - You can't configure a user-assigned identity with a resource ID.
+  - When in local development, your developer identity is used instead.
+
+### Grant permission to the identity
+
+- Identities must have permissions to perform the intended actions.
+- Typically done through assigning a role in **Azure RBAC** or by specifying the identity in an access policy (depending on the service you're connecting to.)
+- **NOTE**: Some permissions might be exposed by the target service that are not necessary for all contexts. Where possible, adhere to the **principle of least privilege**.
+
+---
+
+[Return](../)
