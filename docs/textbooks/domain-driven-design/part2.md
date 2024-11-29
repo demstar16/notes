@@ -461,3 +461,19 @@ public static HandlingEvent newLoading(Cargo c, CarrierMovement loadedOnto, Date
 - Next we will look at an alternative design that eliminates this awkward interaction altogether.
 
 ![](./images/cargo-sys-5.png)
+
+### Pause for Refactoring: An Alternative Design of the Cargo AGGREGATE
+
+- Modelling and Design are not a straight forward process, you must stop and take advantage of new insights for refactors.
+- An example of this in our current design is our need to update **Delivery History** when adding a **Handling Event** gets the **Cargo** AGGREGATE involved in the transaction.
+  - If another user is modifying **Cargo** at the same time it could lead to the **Handling Event** transaction failing or being delayed.
+  - Entering a **Handling Event** is an operational activity that needs to be quick and simple without contention.
+  - Replacing **Delivery History's** collection of **Handling Events** with a query would allow **Handling Events** to be added without raising integrity issues outside of its own AGGREGATE.
+  - To take responsibility for the queries we will add a REPOSITORY, **Handling Event Repository**.
+- This new implementation essentially erases the need for a **Delivery History**, since it can be recreated whenever needed with a query from **Handling Event**.
+  - This simplifies the **Cargo** class as well as now it no longer needs a **Delivery History** instantiated within it.
+
+![](./images/cargo-sys-6.png)
+
+- The main point here is that there are all kinds of trade-offs everywhere, they are degrees of freedom within the same model.
+- By modelling VALUES, ENTITIES, and their AGGREGATES, we have reduced the impact of such design changes.
