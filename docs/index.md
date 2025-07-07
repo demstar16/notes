@@ -11,14 +11,18 @@ Welcome to my Developer Notes Archive! 🚀 This repository is a personal collec
 **Projects**: Detailed write ups on my favourite projects I have built throughout my journey.  
 **Textbooks**: In depth notes on technical textbooks I have read.  
 **Study**: A place to store notes for exams I am studying for (AWS, Azure, etc.)  
-**General Interest**: Stuff I don't want to lose and find interesting.  
-**Cheatsheets**: Useful reference material for myself.  
+**Misc**: Notes on other tech interests.
 
-## 🛠 Tech Stack & Interests
+## 🛠 Tech Stack
 
-Here are some of the technologies I frequently use and love to explore:
+- TypeScript / JavaScript
+- React
+- Redux
+- Bash
+- Python
 
-Languages: Typescript, JavaScript, C++, Bash.  
-Frameworks: React, Node.js.  
-DevOps: AWS, Azure, Docker, CI/CD pipelines.  
-Other: Cybersecurity & Penetration Testing, Godot & Game Design.  
+## 🧘 Practices
+
+- Clean Code
+- Test Driven Development
+- Domain Driven Design
