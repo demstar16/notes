@@ -1,4 +1,4 @@
-# Command Line
+# Linux CLI
 
 ## Tail
 
