@@ -169,3 +169,35 @@ drawPolygon();
 ```
 
 ## Presentational Attributes
+
+- `fill` allows you to fill in shapes.
+- `stroke` has a few different options.
+  - `stroke`: sets the color of the stroke, default is transparent.
+  - `stoke-width`: width of the stroke in pixels.
+  - `stroke-dasharray`: sets the width of each segment and the gap between them. 
+    - You can have more than 2 numbers for a different repeating pattern.
+    - `stroke-width: 10 20`: means a 10px dash with 20px gap between them.
+  - `stroke-linecap`: controls how each dash should be capped.
+    - `circle`: circles if the dash is 0px.
+    - `square`: squares if the dash is 0px.
+    - `butt`: default.
+- We can animate all these fields with css!!
+
+```css 
+@keyframes casinoLights {
+  from {
+    stroke-dashoffset: 0;
+  }
+  to {
+    stroke-dashoffset: 26;
+  }
+}
+
+
+
+rect {
+  stroke-dasharray: 0, 26;
+  animation:
+    casinoLights 400ms linear infinite;
+}
+```
