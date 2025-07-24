@@ -9,6 +9,12 @@
   - SQL 
   - AWK 
 
+## General Knowledge
+
+- A compiler takes one language as input and outputs another language.
+- Inputting and outputting the same language is called **self-hosting**.
+- You can compile your compiler with another compiler and then used the compiled version of your compiler to compile future versions of your compiler, this is known as **bootstrapping**
+
 ## Book Structure
 
 - Part II & Part III each walk you through building a Lox interpreter.
@@ -21,4 +27,28 @@
 ## The Build
 
 - The first interpreter will be built in **java** with a focus on concepts.
+- The second interpreter will be built in C with a focus on speed.
+ 
+## Challenges
 
+1. The 6 domain-specific languages used in the book are make, css, scss, html, markdown, mustache, and yaml.
+2. Java Implementation:
+
+```java 
+public class HelloWorld {
+  public static void main (String[] args){
+    System.out.println("Hello World!");
+  }
+}
+```
+  - Run the java with `javac filename`.
+3. C Implementation:
+```c 
+#include <stdio.h>
+
+int main() {
+    printf("Hello World!\n");
+    return 0;
+}
+```
+  - Run the c with `gcc filename -o outputName`.
