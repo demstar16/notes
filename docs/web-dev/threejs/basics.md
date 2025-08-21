@@ -250,3 +250,66 @@ const sizes = {
 };
 ```
 
+- In order to handle **re-sizing** we need to listen for the *resize* event.
+- A few key things to adapt in change in this event listener are: size object, camera aspect ratio, camera projection matrix, and the renderer.
+
+```js 
+window.addEventListener('resize', () =>
+{
+    // Update sizes
+    sizes.width = window.innerWidth
+    sizes.height = window.innerHeight
+
+    // Update camera 
+    camera.aspect = sizes.width / sizes.height 
+    camera.updateProjectionMatrix()
+
+    // Update renderer 
+    renderer.setSize(sizes.width, sizes.height)
+})
+```
+
+- Pixel Ratio can be important, we want to restrict any pixel ratio higher than 2 as you can't tell the difference visually but it will affect performance.
+- So we ideally want the smaller value between 2 and whatever the device's pixel ratio is (we don't want to unnecessarily set it to 2.)
+- Dealing with pixel ratio is only really important for users jumping between screens with different ratios and screen sizes, due to this we can add the relevant code in the resize event listener.
+
+```js 
+window.addEventListener('resize', () => {
+  renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2))
+})
+```
+
+- We can handle full-screen functionality with the `dblclick` event (double click to enter and exit full screen mode):
+
+```js 
+window.addEventListener('dblclick', () =>
+{
+    const fullscreenElement = document.fullscreenElement || document.webkitFullscreenElement
+
+    if(!fullscreenElement)
+    {
+        if(canvas.requestFullscreen)
+        {
+            canvas.requestFullscreen()
+        }
+        else if(canvas.webkitRequestFullscreen)
+        {
+            canvas.webkitRequestFullscreen()
+        }
+    }
+    else
+    {
+        if(document.exitFullscreen)
+        {
+            document.exitFullscreen()
+        }
+        else if(document.webkitExitFullscreen)
+        {
+            document.webkitExitFullscreen()
+        }
+    }
+})
+```
+
+
+
