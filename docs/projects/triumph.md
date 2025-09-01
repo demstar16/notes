@@ -61,3 +61,51 @@ In summary, the parameters that most significantly alter gameplay dynamics are:
 ### Design
 
 ### Implementation
+
+- The agents were implemented in python with an object-orientated approach.
+
+#### Green Agents
+
+- Used the Erdos-Renil model to implement the network graph.
+  - Mainly due to it considering a random graph model.
+  - Great for randomly generated population networks.
+- Used the **NetworkX** library has a random graph generation function that incorporates the Erdos-Renil model.
+  - Each edge in the graph is considered with a probability, `p`, independent from the other edges.
+  - All the graphs with `n` nodes and `M` edges have an equivalent probability: `p^M(1-p)^((n/2)-M)`
+
+#### Red Agents
+
+- Uncertainty is used in the calculation of the probability of a message being received well.
+- This agent would, when it is it's turn, assess the current status of the game and with its current influence and uncertainty make a decision to try and influence more nodes uncertainties the way they want.
+
+#### Blue Agents
+
+- The energy of the blue agent is affected each time it sends a message and the potency of the message determines how much energy will be lost.
+- The uncertainty is not only used for calculating the likelihood of a message being received well, it is also affected by the result of the message.
+  - If the message isn't received well, it will increase it's uncertainty which will affect its next term.
+  - If the message is received well, it will decrease it's uncertainty which will affect its next term.
+
+#### Grey Agents
+
+- Have 2 attributes, betray and name.
+  - **name**: exists for debugging purposes.
+  - **betray**: changed via user input and it represents the probability that a spy/grey agent will betray the blue team.
+- They can be sent whenever wanted when a human player plays but the AI will only send a spy if it has any available and is low on energy (ie. it needs to save energy).
+
+#### Bayes Theorem
+
+- Used to calculate conditional probabilities for how the messages are received by the green nodes.
+- This theorem provides an organic and principled result by combining previous results with data.
+- `P(M|U) - (P(U|M) * P(M))/P(U)`
+  - **P(M|U)**: probability of a message being received well given the agent is uncertain.
+  - **P(M)**: probability of a message being received well (depends on the potency).
+  - **P(U)**: The agent's uncertainty.
+  - **P(U|M)**: probability of an agent being uncertain given that the message was received well.
+
+#### Message & Potency
+
+- There are 5 different messages, 1 through 5, with an increasing level of potency.
+- The higher the potency the more followers you can potentially gain or lose.
+- The lower the potency the fewer followers you can potentially gain or lose.
+- The message also affects the agent's uncertainty in a similar fashion.
+- A high risk, high reward principle.
