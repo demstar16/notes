@@ -7,3 +7,4 @@ sidebar_position: 1
 ## Software
 
 - [Triumph](./triumph.md): A CLI Political War Game.
+- [Cool Car](./cool-car.md): Digital Embedded Software Project.
