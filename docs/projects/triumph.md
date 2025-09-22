@@ -60,6 +60,39 @@ In summary, the parameters that most significantly alter gameplay dynamics are:
 
 ### Design
 
+- In regards to the uncertainty of the agents, below 0.2 is considered certain they will vote and above 0.8 is considered certain they will NOT vote (ie. they won't change their mind). The middle is the "uncertain" range.
+
+#### Green Agent
+
+- Attributes:
+  - _name_: It's ID.
+  - _voteStatus_: boolean variable, true if they want to vote, false if they don't.
+  - _uncertainty_: number between 0 and 1, representing how uncertain they are and determines if they want to vote or not.
+
+#### Blue Agent
+
+- Can send messages of differing potencies.
+- Attributes:
+  - _name_: It's name given when created.
+  - _uncertainty_: number between 0 and 1, representing the agent's uncertainty.
+  - _usr_energy_: number between 0 and 100, representing the user's energy (used in game mode 2, playing as the blue team).
+  - _energy_: number between 0 and 100, representing the energy which is used for the AI functions.
+- The blue agent has the ability to skip a turn to try and recoup some of its lost energy.
+
+#### Red Agent
+
+- Can send messages of differing potencies.
+- Attributes:
+  - _name_: It's name given when created.
+  - _uncertainty_: number between 0 and 1, representing the agents uncertainty.
+
+#### Grey Agent
+
+- Attributes:
+  - _name_: It's name given when created.
+  - _betray_: number between 0 and 1, representing the likelihood of betraying the government (blue team).
+- The grey agent's (or spy's) betrayal can be interpreted as it's uncertainty towards the government.
+
 ### Implementation
 
 - The agents were implemented in python with an object-orientated approach.
@@ -109,3 +142,20 @@ In summary, the parameters that most significantly alter gameplay dynamics are:
 - The lower the potency the fewer followers you can potentially gain or lose.
 - The message also affects the agent's uncertainty in a similar fashion.
 - A high risk, high reward principle.
+
+## Program Runtime
+
+- Runs well.
+- Experiences performance hindrances when large populations are paired with many rounds.
+- Experiments:
+  - Population of 500, 10 days: **24.24s**
+  - Population of 50, 200 days: **1.19s**
+  - Population of 500, 50 days: **1119.47s**
+
+## Languages & Libraries
+
+- Used **python** for ease of implementation and useful libraries.
+- **NetworkX**: used to help implement our network of nodes (allows each node to have attributes).
+- **matplotlib**: A visualisation library to visualise the population via graphs.
+- **colorama**: to add color to the terminal, for visual appearance.
+- **pyprobs**: used to do the probability calculations in the game.
