@@ -180,7 +180,7 @@ texture.center.y = 0.5;
 
 ## Good Sites for Textures
 
-- [poliigon](www.poliigon.com)
-- [3dtextures](www.3dtextures.me)
-- [arroway-textures](www.arroway-textures.ch)
+- [poliigon](https://www.poliigon.com)
+- [3dtextures](https://www.3dtextures.me)
+- [arroway-textures](https://www.arroway-textures.ch)
 - Make your own with [Substance Designer](https://www.adobe.com/products/substance3d-designer.html)
