@@ -1,0 +1,18 @@
+{
+  "yet-another-obsidian-synchronizer:show-unmerged": [
+    {
+      "modifiers": [
+        "Alt"
+      ],
+      "key": "C"
+    }
+  ],
+  "yet-another-obsidian-synchronizer:sync": [
+    {
+      "modifiers": [
+        "Alt"
+      ],
+      "key": "S"
+    }
+  ]
+}
