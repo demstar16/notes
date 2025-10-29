@@ -67,7 +67,7 @@ const config: Config = {
     navbar: {
       title: "Notes",
       logo: {
-        href: `http://localhost:3000/docs`,
+        href: `http://notes.d-sons.com/docs`,
         target: "_self",
         alt: "My Site Logo",
         src: "img/bear-brain.png",
