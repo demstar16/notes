@@ -1,29 +1,328 @@
 /**
- * Any CSS included here will be global. The classic template
- * bundles Infima by default. Infima is a CSS framework designed to
- * work well for content-centric websites.
+ * Custom theme matching the portfolio site
+ * Colors: Dark blue (#143D60) + Yellow-lime (#dff297)
+ * Fonts: JetBrains Mono (headings) + Rokkitt (body)
  */
 
-/* You can override the default Infima variables here. */
+/* Import Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&family=Rokkitt:wght@400;500;700&display=swap');
+
+/* Light mode - using dark theme as default to match portfolio */
 :root {
-  --ifm-color-primary: #25c2a0;
-  --ifm-color-primary-dark: #21af90;
-  --ifm-color-primary-darker: #1fa588;
-  --ifm-color-primary-darkest: #1a8870;
-  --ifm-color-primary-light: #29d5b0;
-  --ifm-color-primary-lighter: #32d8b4;
-  --ifm-color-primary-lightest: #4fddbf;
-  --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.3);
+  /* Primary color is the yellow-lime for links/accents */
+  --ifm-color-primary: #dff297;
+  --ifm-color-primary-dark: #d7ee7a;
+  --ifm-color-primary-darker: #d3ec6b;
+  --ifm-color-primary-darkest: #c7e63f;
+  --ifm-color-primary-light: #e7f6b4;
+  --ifm-color-primary-lighter: #ebf8c3;
+  --ifm-color-primary-lightest: #f7fceb;
+
+  /* Background colors */
+  --ifm-background-color: #143D60;
+  --ifm-background-surface-color: #1a4a73;
+
+  /* Text colors */
+  --ifm-font-color-base: #dff297;
+  --ifm-font-color-secondary: rgba(223, 242, 151, 0.8);
+  --ifm-heading-color: #dff297;
+
+  /* Fonts */
+  --ifm-font-family-base: 'Rokkitt', serif;
+  --ifm-font-family-monospace: 'JetBrains Mono', monospace;
+  --ifm-heading-font-family: 'JetBrains Mono', monospace;
+
+  /* Navbar */
+  --ifm-navbar-background-color: #143D60;
+  --ifm-navbar-link-color: #dff297;
+  --ifm-navbar-link-hover-color: rgba(223, 242, 151, 0.7);
+
+  /* Footer */
+  --ifm-footer-background-color: #0f2d47;
+  --ifm-footer-color: #dff297;
+  --ifm-footer-link-color: #dff297;
+
+  /* Cards and containers */
+  --ifm-card-background-color: #1a4a73;
+  --ifm-card-border-radius: 10px;
+
+  /* Code blocks */
+  --ifm-code-font-size: 95%;
+  --docusaurus-highlighted-code-line-bg: rgba(223, 242, 151, 0.15);
+
+  /* Links */
+  --ifm-link-color: #dff297;
+  --ifm-link-hover-color: rgba(223, 242, 151, 0.8);
+
+  /* Borders */
+  --ifm-hr-border-color: rgba(223, 242, 151, 0.3);
+
+  /* Sidebar */
+  --ifm-menu-color: #dff297;
+  --ifm-menu-color-active: #dff297;
+  --ifm-menu-color-background-active: rgba(223, 242, 151, 0.1);
+
+  /* Table of contents */
+  --ifm-toc-border-color: rgba(223, 242, 151, 0.2);
+  --ifm-toc-link-color: rgba(223, 242, 151, 0.7);
+
+  /* Alerts/Admonitions */
+  --ifm-alert-background-color: #1a4a73;
+
+  /* Global border radius */
+  --ifm-global-radius: 10px;
+  --ifm-button-border-radius: 8px;
 }
 
-/* For readability concerns, you should choose a lighter palette in dark mode. */
+/* Dark mode - same as light since portfolio is dark-themed */
 [data-theme='dark'] {
-  --ifm-color-primary: #25c2a0;
-  --ifm-color-primary-dark: #21af90;
-  --ifm-color-primary-darker: #1fa588;
-  --ifm-color-primary-darkest: #1a8870;
-  --ifm-color-primary-light: #29d5b0;
-  --ifm-color-primary-lighter: #32d8b4;
-  --ifm-color-primary-lightest: #4fddbf;
-  --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.3);
+  --ifm-color-primary: #dff297;
+  --ifm-color-primary-dark: #d7ee7a;
+  --ifm-color-primary-darker: #d3ec6b;
+  --ifm-color-primary-darkest: #c7e63f;
+  --ifm-color-primary-light: #e7f6b4;
+  --ifm-color-primary-lighter: #ebf8c3;
+  --ifm-color-primary-lightest: #f7fceb;
+
+  --ifm-background-color: #143D60;
+  --ifm-background-surface-color: #1a4a73;
+
+  --ifm-font-color-base: #dff297;
+  --ifm-font-color-secondary: rgba(223, 242, 151, 0.8);
+  --ifm-heading-color: #dff297;
+
+  --ifm-navbar-background-color: #143D60;
+  --ifm-footer-background-color: #0f2d47;
+
+  --docusaurus-highlighted-code-line-bg: rgba(223, 242, 151, 0.15);
+}
+
+/* ===== Custom Styling ===== */
+
+/* Headings */
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'JetBrains Mono', monospace;
+  letter-spacing: -0.02em;
+}
+
+/* Smooth scrolling */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Navbar styling */
+.navbar {
+  border-bottom: 2px solid rgba(223, 242, 151, 0.3);
+  backdrop-filter: blur(10px);
+}
+
+.navbar__title {
+  font-family: 'JetBrains Mono', monospace;
+  font-weight: 700;
+}
+
+.navbar__link {
+  font-weight: 500;
+  transition: color 0.3s ease;
+}
+
+.navbar__link:hover {
+  color: var(--ifm-color-primary);
+}
+
+/* Sidebar styling */
+.menu__link {
+  border-radius: 8px;
+  transition: all 0.3s ease;
+}
+
+.menu__link:hover {
+  background-color: rgba(223, 242, 151, 0.1);
+}
+
+.menu__link--active {
+  border-left: 3px solid #dff297;
+  background-color: rgba(223, 242, 151, 0.1);
+}
+
+/* Sidebar arrows/chevrons */
+.menu__caret,
+.menu__link--sublist-caret::after,
+.menu__caret::before {
+  filter: brightness(0) invert(1);
+}
+
+.menu__caret:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+/* Code blocks */
+.prism-code {
+  border-radius: 10px;
+  border: 1px solid rgba(223, 242, 151, 0.2);
+}
+
+code {
+  border-radius: 4px;
+  padding: 2px 6px;
+  background-color: rgba(223, 242, 151, 0.1);
+  color: #dff297;
+  font-family: 'JetBrains Mono', monospace;
+}
+
+/* Buttons */
+.button {
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  font-family: 'JetBrains Mono', monospace;
+  font-weight: 600;
+}
+
+.button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 5px 20px rgba(223, 242, 151, 0.2);
+}
+
+.button--primary {
+  background-color: #dff297;
+  color: #143D60;
+  border: none;
+}
+
+.button--primary:hover {
+  background-color: rgba(223, 242, 151, 0.85);
+  color: #143D60;
+}
+
+.button--secondary {
+  background-color: transparent;
+  border: 2px solid #dff297;
+  color: #dff297;
+}
+
+.button--secondary:hover {
+  background-color: rgba(223, 242, 151, 0.1);
+}
+
+/* Cards */
+.card {
+  background-color: #1a4a73;
+  border: 2px solid rgba(223, 242, 151, 0.3);
+  border-radius: 10px;
+  transition: all 0.3s ease;
+}
+
+.card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 10px 30px rgba(223, 242, 151, 0.15);
+  border-color: rgba(223, 242, 151, 0.5);
+}
+
+/* Footer */
+.footer {
+  border-top: 2px solid rgba(223, 242, 151, 0.3);
+}
+
+.footer__title {
+  font-family: 'JetBrains Mono', monospace;
+}
+
+/* Tables */
+table {
+  border-collapse: collapse;
+}
+
+table th {
+  background-color: rgba(223, 242, 151, 0.1);
+  font-family: 'JetBrains Mono', monospace;
+}
+
+table td, table th {
+  border-color: rgba(223, 242, 151, 0.2);
+}
+
+table tr:hover {
+  background-color: rgba(223, 242, 151, 0.05);
+}
+
+/* Blockquotes */
+blockquote {
+  border-left: 4px solid #dff297;
+  background-color: rgba(223, 242, 151, 0.05);
+  border-radius: 0 10px 10px 0;
+}
+
+/* Scrollbar styling */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #143D60;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #dff297;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(223, 242, 151, 0.8);
+}
+
+/* Selection */
+::selection {
+  background: rgba(223, 242, 151, 0.3);
+  color: #dff297;
+}
+
+/* Admonitions/Alerts */
+.alert {
+  border-radius: 10px;
+  border-left-width: 4px;
+}
+
+/* Search */
+.DocSearch-Button {
+  border-radius: 8px;
+  border: 1px solid rgba(223, 242, 151, 0.3);
+}
+
+/* TOC */
+.table-of-contents__link:hover,
+.table-of-contents__link--active {
+  color: #dff297;
+}
+
+/* Breadcrumbs */
+.breadcrumbs__link {
+  transition: color 0.3s ease;
+}
+
+.breadcrumbs__link:hover {
+  color: #dff297;
+}
+
+/* Pagination */
+.pagination-nav__link {
+  border: 2px solid rgba(223, 242, 151, 0.3);
+  border-radius: 10px;
+  transition: all 0.3s ease;
+}
+
+.pagination-nav__link:hover {
+  border-color: #dff297;
+  background-color: rgba(223, 242, 151, 0.05);
+}
+
+/* Doc page specific */
+.theme-doc-markdown {
+  font-size: 1.05rem;
+  line-height: 1.7;
+}
+
+/* Improve readability of inline code in paragraphs */
+p code, li code {
+  background-color: rgba(223, 242, 151, 0.15);
+  padding: 2px 8px;
 }
