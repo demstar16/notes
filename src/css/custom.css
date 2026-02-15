@@ -321,6 +321,17 @@ blockquote {
   line-height: 1.7;
 }
 
+/* Dashed underline on links in doc content so they're visually distinct */
+.theme-doc-markdown a {
+  text-decoration: underline;
+  text-decoration-style: dashed;
+  text-underline-offset: 3px;
+}
+
+.theme-doc-markdown a:hover {
+  text-decoration-style: solid;
+}
+
 /* Improve readability of inline code in paragraphs */
 p code, li code {
   background-color: rgba(223, 242, 151, 0.15);
