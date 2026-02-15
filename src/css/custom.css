@@ -113,7 +113,16 @@ html {
 /* Navbar styling */
 .navbar {
   border-bottom: 2px solid rgba(223, 242, 151, 0.3);
+}
+
+/* Apply backdrop-filter via pseudo-element so it doesn't create a
+   containing block that traps the fixed-position mobile sidebar */
+.navbar::before {
+  content: '';
+  position: absolute;
+  inset: 0;
   backdrop-filter: blur(10px);
+  z-index: -1;
 }
 
 .navbar__title {

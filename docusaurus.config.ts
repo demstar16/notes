@@ -58,7 +58,14 @@ const config: Config = {
         alt: "My Site Logo",
         src: "img/bear-brain.png",
       },
-      items: [],
+      items: [
+        {
+          type: "docSidebar",
+          sidebarId: "tutorialSidebar",
+          position: "left",
+          label: "Notes",
+        },
+      ],
     },
 
     footer: {
