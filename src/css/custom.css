@@ -1,6 +1,6 @@
 /**
  * Custom theme matching the portfolio site
- * Colors: Dark blue (#143D60) + Yellow-lime (#dff297)
+ * Colors: Deep space navy (#0A1128) + Neon aqua-green (#39FFC5)
  * Fonts: JetBrains Mono (headings) + Rokkitt (body)
  */
 
@@ -10,22 +10,22 @@
 /* Light mode - using dark theme as default to match portfolio */
 :root {
   /* Primary color is the yellow-lime for links/accents */
-  --ifm-color-primary: #dff297;
-  --ifm-color-primary-dark: #d7ee7a;
-  --ifm-color-primary-darker: #d3ec6b;
-  --ifm-color-primary-darkest: #c7e63f;
-  --ifm-color-primary-light: #e7f6b4;
-  --ifm-color-primary-lighter: #ebf8c3;
-  --ifm-color-primary-lightest: #f7fceb;
+  --ifm-color-primary: #39FFC5;
+  --ifm-color-primary-dark: #17FFB9;
+  --ifm-color-primary-darker: #06FFB4;
+  --ifm-color-primary-darkest: #00D394;
+  --ifm-color-primary-light: #59FFCD;
+  --ifm-color-primary-lighter: #6AFFD2;
+  --ifm-color-primary-lightest: #96FFE0;
 
   /* Background colors */
-  --ifm-background-color: #143D60;
-  --ifm-background-surface-color: #1a4a73;
+  --ifm-background-color: #0A1128;
+  --ifm-background-surface-color: #16234A;
 
   /* Text colors */
-  --ifm-font-color-base: #dff297;
-  --ifm-font-color-secondary: rgba(223, 242, 151, 0.8);
-  --ifm-heading-color: #dff297;
+  --ifm-font-color-base: #39FFC5;
+  --ifm-font-color-secondary: rgba(57, 255, 197, 0.8);
+  --ifm-heading-color: #39FFC5;
 
   /* Fonts */
   --ifm-font-family-base: 'Rokkitt', serif;
@@ -33,41 +33,41 @@
   --ifm-heading-font-family: 'JetBrains Mono', monospace;
 
   /* Navbar */
-  --ifm-navbar-background-color: #143D60;
-  --ifm-navbar-link-color: #dff297;
-  --ifm-navbar-link-hover-color: rgba(223, 242, 151, 0.7);
+  --ifm-navbar-background-color: #0A1128;
+  --ifm-navbar-link-color: #39FFC5;
+  --ifm-navbar-link-hover-color: rgba(57, 255, 197, 0.7);
 
   /* Footer */
-  --ifm-footer-background-color: #0f2d47;
-  --ifm-footer-color: #dff297;
-  --ifm-footer-link-color: #dff297;
+  --ifm-footer-background-color: #070D1E;
+  --ifm-footer-color: #39FFC5;
+  --ifm-footer-link-color: #39FFC5;
 
   /* Cards and containers */
-  --ifm-card-background-color: #1a4a73;
+  --ifm-card-background-color: #16234A;
   --ifm-card-border-radius: 10px;
 
   /* Code blocks */
   --ifm-code-font-size: 95%;
-  --docusaurus-highlighted-code-line-bg: rgba(223, 242, 151, 0.15);
+  --docusaurus-highlighted-code-line-bg: rgba(57, 255, 197, 0.15);
 
   /* Links */
-  --ifm-link-color: #dff297;
-  --ifm-link-hover-color: rgba(223, 242, 151, 0.8);
+  --ifm-link-color: #39FFC5;
+  --ifm-link-hover-color: rgba(57, 255, 197, 0.8);
 
   /* Borders */
-  --ifm-hr-border-color: rgba(223, 242, 151, 0.3);
+  --ifm-hr-border-color: rgba(57, 255, 197, 0.3);
 
   /* Sidebar */
-  --ifm-menu-color: #dff297;
-  --ifm-menu-color-active: #dff297;
-  --ifm-menu-color-background-active: rgba(223, 242, 151, 0.1);
+  --ifm-menu-color: #39FFC5;
+  --ifm-menu-color-active: #39FFC5;
+  --ifm-menu-color-background-active: rgba(57, 255, 197, 0.1);
 
   /* Table of contents */
-  --ifm-toc-border-color: rgba(223, 242, 151, 0.2);
-  --ifm-toc-link-color: rgba(223, 242, 151, 0.7);
+  --ifm-toc-border-color: rgba(57, 255, 197, 0.2);
+  --ifm-toc-link-color: rgba(57, 255, 197, 0.7);
 
   /* Alerts/Admonitions */
-  --ifm-alert-background-color: #1a4a73;
+  --ifm-alert-background-color: #16234A;
 
   /* Global border radius */
   --ifm-global-radius: 10px;
@@ -76,25 +76,25 @@
 
 /* Dark mode - same as light since portfolio is dark-themed */
 [data-theme='dark'] {
-  --ifm-color-primary: #dff297;
-  --ifm-color-primary-dark: #d7ee7a;
-  --ifm-color-primary-darker: #d3ec6b;
-  --ifm-color-primary-darkest: #c7e63f;
-  --ifm-color-primary-light: #e7f6b4;
-  --ifm-color-primary-lighter: #ebf8c3;
-  --ifm-color-primary-lightest: #f7fceb;
+  --ifm-color-primary: #39FFC5;
+  --ifm-color-primary-dark: #17FFB9;
+  --ifm-color-primary-darker: #06FFB4;
+  --ifm-color-primary-darkest: #00D394;
+  --ifm-color-primary-light: #59FFCD;
+  --ifm-color-primary-lighter: #6AFFD2;
+  --ifm-color-primary-lightest: #96FFE0;
 
-  --ifm-background-color: #143D60;
-  --ifm-background-surface-color: #1a4a73;
+  --ifm-background-color: #0A1128;
+  --ifm-background-surface-color: #16234A;
 
-  --ifm-font-color-base: #dff297;
-  --ifm-font-color-secondary: rgba(223, 242, 151, 0.8);
-  --ifm-heading-color: #dff297;
+  --ifm-font-color-base: #39FFC5;
+  --ifm-font-color-secondary: rgba(57, 255, 197, 0.8);
+  --ifm-heading-color: #39FFC5;
 
-  --ifm-navbar-background-color: #143D60;
-  --ifm-footer-background-color: #0f2d47;
+  --ifm-navbar-background-color: #0A1128;
+  --ifm-footer-background-color: #070D1E;
 
-  --docusaurus-highlighted-code-line-bg: rgba(223, 242, 151, 0.15);
+  --docusaurus-highlighted-code-line-bg: rgba(57, 255, 197, 0.15);
 }
 
 /* ===== Custom Styling ===== */
@@ -112,7 +112,7 @@ html {
 
 /* Navbar styling */
 .navbar {
-  border-bottom: 2px solid rgba(223, 242, 151, 0.3);
+  border-bottom: 2px solid rgba(57, 255, 197, 0.3);
 }
 
 /* Apply backdrop-filter via pseudo-element so it doesn't create a
@@ -146,12 +146,12 @@ html {
 }
 
 .menu__link:hover {
-  background-color: rgba(223, 242, 151, 0.1);
+  background-color: rgba(57, 255, 197, 0.1);
 }
 
 .menu__link--active {
-  border-left: 3px solid #dff297;
-  background-color: rgba(223, 242, 151, 0.1);
+  border-left: 3px solid #39FFC5;
+  background-color: rgba(57, 255, 197, 0.1);
 }
 
 /* Sidebar arrows/chevrons */
@@ -168,14 +168,14 @@ html {
 /* Code blocks */
 .prism-code {
   border-radius: 10px;
-  border: 1px solid rgba(223, 242, 151, 0.2);
+  border: 1px solid rgba(57, 255, 197, 0.2);
 }
 
 code {
   border-radius: 4px;
   padding: 2px 6px;
-  background-color: rgba(223, 242, 151, 0.1);
-  color: #dff297;
+  background-color: rgba(57, 255, 197, 0.1);
+  color: #39FFC5;
   font-family: 'JetBrains Mono', monospace;
 }
 
@@ -188,47 +188,47 @@ code {
 
 .button:hover {
   transform: translateY(-2px);
-  box-shadow: 0 5px 20px rgba(223, 242, 151, 0.2);
+  box-shadow: 0 5px 20px rgba(57, 255, 197, 0.2);
 }
 
 .button--primary {
-  background-color: #dff297;
-  color: #143D60;
+  background-color: #39FFC5;
+  color: #0A1128;
   border: none;
 }
 
 .button--primary:hover {
-  background-color: rgba(223, 242, 151, 0.85);
-  color: #143D60;
+  background-color: rgba(57, 255, 197, 0.85);
+  color: #0A1128;
 }
 
 .button--secondary {
   background-color: transparent;
-  border: 2px solid #dff297;
-  color: #dff297;
+  border: 2px solid #39FFC5;
+  color: #39FFC5;
 }
 
 .button--secondary:hover {
-  background-color: rgba(223, 242, 151, 0.1);
+  background-color: rgba(57, 255, 197, 0.1);
 }
 
 /* Cards */
 .card {
-  background-color: #1a4a73;
-  border: 2px solid rgba(223, 242, 151, 0.3);
+  background-color: #16234A;
+  border: 2px solid rgba(57, 255, 197, 0.3);
   border-radius: 10px;
   transition: all 0.3s ease;
 }
 
 .card:hover {
   transform: translateY(-4px);
-  box-shadow: 0 10px 30px rgba(223, 242, 151, 0.15);
-  border-color: rgba(223, 242, 151, 0.5);
+  box-shadow: 0 10px 30px rgba(57, 255, 197, 0.15);
+  border-color: rgba(57, 255, 197, 0.5);
 }
 
 /* Footer */
 .footer {
-  border-top: 2px solid rgba(223, 242, 151, 0.3);
+  border-top: 2px solid rgba(57, 255, 197, 0.3);
 }
 
 .footer__title {
@@ -241,22 +241,22 @@ table {
 }
 
 table th {
-  background-color: rgba(223, 242, 151, 0.1);
+  background-color: rgba(57, 255, 197, 0.1);
   font-family: 'JetBrains Mono', monospace;
 }
 
 table td, table th {
-  border-color: rgba(223, 242, 151, 0.2);
+  border-color: rgba(57, 255, 197, 0.2);
 }
 
 table tr:hover {
-  background-color: rgba(223, 242, 151, 0.05);
+  background-color: rgba(57, 255, 197, 0.05);
 }
 
 /* Blockquotes */
 blockquote {
-  border-left: 4px solid #dff297;
-  background-color: rgba(223, 242, 151, 0.05);
+  border-left: 4px solid #39FFC5;
+  background-color: rgba(57, 255, 197, 0.05);
   border-radius: 0 10px 10px 0;
 }
 
@@ -267,22 +267,22 @@ blockquote {
 }
 
 ::-webkit-scrollbar-track {
-  background: #143D60;
+  background: #0A1128;
 }
 
 ::-webkit-scrollbar-thumb {
-  background: #dff297;
+  background: #39FFC5;
   border-radius: 4px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: rgba(223, 242, 151, 0.8);
+  background: rgba(57, 255, 197, 0.8);
 }
 
 /* Selection */
 ::selection {
-  background: rgba(223, 242, 151, 0.3);
-  color: #dff297;
+  background: rgba(57, 255, 197, 0.3);
+  color: #39FFC5;
 }
 
 /* Admonitions/Alerts */
@@ -294,13 +294,13 @@ blockquote {
 /* Search */
 .DocSearch-Button {
   border-radius: 8px;
-  border: 1px solid rgba(223, 242, 151, 0.3);
+  border: 1px solid rgba(57, 255, 197, 0.3);
 }
 
 /* TOC */
 .table-of-contents__link:hover,
 .table-of-contents__link--active {
-  color: #dff297;
+  color: #39FFC5;
 }
 
 /* Breadcrumbs */
@@ -309,19 +309,19 @@ blockquote {
 }
 
 .breadcrumbs__link:hover {
-  color: #dff297;
+  color: #39FFC5;
 }
 
 /* Pagination */
 .pagination-nav__link {
-  border: 2px solid rgba(223, 242, 151, 0.3);
+  border: 2px solid rgba(57, 255, 197, 0.3);
   border-radius: 10px;
   transition: all 0.3s ease;
 }
 
 .pagination-nav__link:hover {
-  border-color: #dff297;
-  background-color: rgba(223, 242, 151, 0.05);
+  border-color: #39FFC5;
+  background-color: rgba(57, 255, 197, 0.05);
 }
 
 /* Doc page specific */
@@ -343,6 +343,6 @@ blockquote {
 
 /* Improve readability of inline code in paragraphs */
 p code, li code {
-  background-color: rgba(223, 242, 151, 0.15);
+  background-color: rgba(57, 255, 197, 0.15);
   padding: 2px 8px;
 }

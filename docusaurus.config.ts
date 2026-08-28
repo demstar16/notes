@@ -51,19 +51,17 @@ const config: Config = {
     },
 
     navbar: {
-      title: "Dsons' Notes",
       logo: {
-        href: "/",
+        href: "https://d-sons.com",
         target: "_self",
-        alt: "My Site Logo",
-        src: "img/bear-brain.png",
+        alt: "Dsons' Notes logo — back to portfolio",
+        src: "img/portfolio-icon.png",
       },
       items: [
         {
-          type: "docSidebar",
-          sidebarId: "tutorialSidebar",
+          to: "/",
+          label: "Dsons' Notes",
           position: "left",
-          label: "Notes",
         },
       ],
     },
