@@ -1,3 +1,4 @@
+# Microsoft AI Pricing Models
 ## Copilot Studio
 A credit refers to how much it costs to perform a certain action within the platform
 
