@@ -4,3 +4,4 @@
 - [Part II: Programming Paradigms](./part2)
 - [Part III: Design Principles](./part3)
 - [Part IV: Component Principles](./part4)
+- [Part V: Architecture](./part5)

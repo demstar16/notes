@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "projects/Redis.md",
+                "file": "index.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "Redis"
+              "title": "index"
             }
           }
         ]
@@ -80,8 +80,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 200,
-    "collapsed": true
+    "width": 200
   },
   "right": {
     "id": "075b04f7a678e272",
@@ -176,22 +175,33 @@
   },
   "active": "4c555122d8f104e3",
   "lastOpenFiles": [
-    "projects/Redis.md",
-    "cloud-comp/aws/IAM.md",
-    "cloud-comp/aws/S3.md",
-    "cloud-comp/aws/index.md",
-    "ai/claude.md",
-    "ai/AI Architect.md",
-    "languages/C++.md",
+    "images/bret-hart.jpg",
+    "index.md",
+    "images",
+    "web-dev/svg.md",
+    "web-dev/index.md",
+    "web-dev/threejs/index.md",
+    "textbooks/index.md",
+    "textbooks/domain-driven-design/index.md",
+    "textbooks/sicp/ch02.md",
+    "textbooks/domain-driven-design/part2.md",
+    "textbooks/domain-driven-design/part1.md",
+    "textbooks/crafting-interpreters/part1.md",
+    "textbooks/crafting-interpreters/index.md",
+    "textbooks/clean-code/index.md",
+    "textbooks/clean-architecture/index.md",
+    "textbooks/clean-architecture/part5.md",
+    "projects/index.md",
+    "misc/soft-skills.md",
+    "misc/index.md",
+    "misc/linux.md",
     "low-code/index.md",
+    "low-code/Canvas App Hacks.md",
     "languages/index.md",
     "languages/git.md",
-    "ai/Pricing.md",
-    "low-code/Canvas App Hacks.md",
-    "low-code/Copilot Studio Licensing.md",
-    "projects/index.md",
-    "index.md",
-    "low-code",
-    "textbooks/domain-driven-design/index.md"
+    "languages/C++.md",
+    "languages/bash.md",
+    "game-dev/storytelling.md",
+    "low-code"
   ]
 }
